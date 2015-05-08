@@ -1,5 +1,0 @@
-<RCC>
-    <qresource prefix="/plugins/LCCS3_BasicCoder" >
-        <file>icon.png</file>
-    </qresource>
-</RCC>
