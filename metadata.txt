@@ -21,7 +21,7 @@ email=simone.maffei@gmail.com
 # Uncomment the following line and add your changelog:
 changelog=Plugin versions:
     2015/05/11 v.0.4.1
-    - added reference to GitHub code repository
+    - added reference to GitHub code repository / tracker
     2015/05/08 v.0.4
     - now the plugin tool button is loaded into "plugins" toolbar
     2015/04/23 v.0.3
@@ -35,7 +35,7 @@ changelog=Plugin versions:
 tags=LCCS,LCCS3,attribute,editing,land,cover,landcover,legend,coding
 
 homepage=http://www.geovis.net/Product_LCCS3basicCoder.htm
-tracker=https://hub.qgis.org/projects/lccs3basiccder
+tracker=https://github.com/GHsimone/LCCS3basicCoder
 repository=https://github.com/GHsimone/LCCS3basicCoder
 category=Vector
 icon=icon.png
