@@ -10,7 +10,7 @@
 name=LCCS3 Basic Coder
 qgisMinimumVersion=2.0
 description=The plugin loads a LCCS3 legend, creates a form with all LCCS3 classes and allows the user to code selected features
-version=0.4.1
+version=0.4.2
 author=Simone Maffei
 email=simone.maffei@gmail.com
 
@@ -20,6 +20,10 @@ email=simone.maffei@gmail.com
 
 # Uncomment the following line and add your changelog:
 changelog=Plugin versions:
+    2015/05/15 v.0.4.2
+    - changed the coding routine: now it run much faster, but it requires
+      that the user save manually the edited values at the end (or during)
+      the session
     2015/05/11 v.0.4.1
     - added reference to GitHub code repository / tracker
     2015/05/08 v.0.4

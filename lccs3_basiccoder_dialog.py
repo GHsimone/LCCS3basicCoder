@@ -177,6 +177,7 @@ class LCCS3_BasicCoderDialog(QtGui.QDialog, FORM_CLASS):
             selected_features = config.LCCS3layer.selectedFeatures()
 
             if caps & QgsVectorDataProvider.ChangeAttributeValues and config.LCCS3columnId >= 0 and len(selected_features) > 0:
+
                 self.setStatusMessage(config.StartCoding)
                 self.lbStatusBar.setStyleSheet("QLabel { background-color : green; color : white; }")
                 self.lbStatusBar.repaint()
@@ -186,12 +187,20 @@ class LCCS3_BasicCoderDialog(QtGui.QDialog, FORM_CLASS):
                 config.LCCS3code = aList[0] # self.lstClasses.currentItem().text()
                 self.setStatusMessage(config.Coding)
                 self.lbStatusBar.repaint()
-                attrs = { config.LCCS3columnId : config.LCCS3code }
-                for a_feature in selected_features:
-                    config.LCCS3layer.dataProvider().changeAttributeValues({ a_feature.id() : attrs })
 
-                #fid = a_feature.id()
+                # SIMONE: this version does not require layer in editing mode
+                #         and update/save the values immediately, but ...
+                #         it is much slower
                 #attrs = { config.LCCS3columnId : config.LCCS3code }
+                #for a_feature in selected_features:
+                #    config.LCCS3layer.dataProvider().changeAttributeValues({ a_feature.id() : attrs })
+
+                # SIMONE: this version requires layer in editing mode, and the user
+                #         MUST save manually the values. It is much faster
+                if not config.LCCS3layer.isEditable():
+                    config.LCCS3layer.startEditing()
+                for a_feature in selected_features:
+                    config.LCCS3layer.changeAttributeValue(a_feature.id(),config.LCCS3columnId,config.LCCS3code,True)
 
                 self.setStatusMessage(str(len(selected_features)) + ' ' + config.FeaturesCodedWithCode + ' ' + str(config.LCCS3code))
                 time.sleep(0.3)
